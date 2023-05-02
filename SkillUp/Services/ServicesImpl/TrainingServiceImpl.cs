@@ -7,6 +7,7 @@ namespace SkillUp.Services.ServicesImpl
 	public class TrainingServiceImpl : ITrainingService
 	{
         private readonly ApplicationDbContext _db;
+        private readonly  ITrainingCenterService trainingCenterService;
 
         public TrainingServiceImpl(ApplicationDbContext db)
         {
@@ -37,6 +38,21 @@ namespace SkillUp.Services.ServicesImpl
         {
             var training = await _db.trainings.ToListAsync();
             return training;
+        }
+        public async Task<Training> getTrainigById(int id)
+        {
+            Training training = await _db.trainings.FindAsync(id);
+            return training;
+        }
+        public async Task<Training> addFormationToCenter(int fid,int cid)
+        {
+            Training training = await getTrainigById(fid);
+            TrainingCenter trainingCenter = await trainingCenterService.getTrainingCenterById(cid);
+            training.trainingcenter = trainingCenter;
+            trainingCenter.trainings.Add(training);
+            await _db.SaveChangesAsync();
+            return training;
+
         }
     }
 }

@@ -13,6 +13,10 @@ namespace SkillUp.Models
         public int Id { get; set; }
         [Display(Name = "Nom de la formation")]
         public string Name { get; set; }
+		public List<Candidat> candidats { get; set; }
+		public TrainingCenter trainingcenter { get; set; } 
+		
     }
+	
 }
 
