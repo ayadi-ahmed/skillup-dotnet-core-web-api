@@ -1,1 +1,1 @@
-# skillup-dotnet-core-web-api
+# SkillUp
