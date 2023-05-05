@@ -10,9 +10,7 @@ namespace SkillUp.Models
 		}
 
         public DbSet<Training> trainings { get; set; }
-        public DbSet<User> users { get; set; }
         public DbSet<TrainingCenter> trainingCenters { get; set; }
-        public DbSet<Candidat> candidats { get; set; }
     }
 }
 

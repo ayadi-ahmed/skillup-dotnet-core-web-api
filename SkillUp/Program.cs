@@ -16,7 +16,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ITrainingService, TrainingServiceImpl>();
-builder.Services.AddScoped<ICandidatService, CandidatServiceImpl>();
 
 
 var app = builder.Build();

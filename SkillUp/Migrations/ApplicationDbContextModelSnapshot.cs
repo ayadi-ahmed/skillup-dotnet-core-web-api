@@ -21,21 +21,6 @@ namespace SkillUp.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("CandidatTraining", b =>
-                {
-                    b.Property<long>("candidatsId")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("trainingsId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("candidatsId", "trainingsId");
-
-                    b.HasIndex("trainingsId");
-
-                    b.ToTable("CandidatTraining");
-                });
-
             modelBuilder.Entity("SkillUp.Models.Training", b =>
                 {
                     b.Property<int>("Id")
@@ -48,12 +33,7 @@ namespace SkillUp.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("trainingcenterId")
-                        .HasColumnType("integer");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("trainingcenterId");
 
                     b.ToTable("trainings");
                 });
@@ -73,97 +53,6 @@ namespace SkillUp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("trainingCenters");
-                });
-
-            modelBuilder.Entity("SkillUp.Models.User", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("email")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("mdp")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("users");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("User");
-
-                    b.UseTphMappingStrategy();
-                });
-
-            modelBuilder.Entity("SkillUp.Models.Candidat", b =>
-                {
-                    b.HasBaseType("SkillUp.Models.User");
-
-                    b.Property<string>("address")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("dateNaissance")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("fonction")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("nom")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("prenom")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("tel")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasDiscriminator().HasValue("Candidat");
-                });
-
-            modelBuilder.Entity("CandidatTraining", b =>
-                {
-                    b.HasOne("SkillUp.Models.Candidat", null)
-                        .WithMany()
-                        .HasForeignKey("candidatsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SkillUp.Models.Training", null)
-                        .WithMany()
-                        .HasForeignKey("trainingsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SkillUp.Models.Training", b =>
-                {
-                    b.HasOne("SkillUp.Models.TrainingCenter", "trainingcenter")
-                        .WithMany("trainings")
-                        .HasForeignKey("trainingcenterId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("trainingcenter");
-                });
-
-            modelBuilder.Entity("SkillUp.Models.TrainingCenter", b =>
-                {
-                    b.Navigation("trainings");
                 });
 #pragma warning restore 612, 618
         }

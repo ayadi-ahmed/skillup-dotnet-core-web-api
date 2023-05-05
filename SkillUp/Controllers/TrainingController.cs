@@ -9,7 +9,7 @@ namespace SkillUp.Controllers
     [ApiController]
     public class TrainingController : ControllerBase
     {
-        private readonly ITrainingService trainingService;
+        private ITrainingService trainingService;
         public TrainingController(ITrainingService trainingService)
         {
             this.trainingService = trainingService;
