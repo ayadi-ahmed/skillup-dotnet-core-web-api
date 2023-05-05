@@ -5,7 +5,7 @@
 namespace SkillUp.Migrations
 {
     /// <inheritdoc />
-    public partial class Trainin_and_centerg : Migration
+    public partial class addachattocandidat : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

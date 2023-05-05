@@ -1,20 +1,43 @@
-﻿<Properties StartupConfiguration="{027DB09E-4CDB-4BAC-BE12-ADC579D07D6F}|https" GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workbench>
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{027DB09E-4CDB-4BAC-BE12-ADC579D07D6F}|https">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="SkillUp/Models/Training.cs">
+    <Files>
+      <File FileName="SkillUp/Models/Manager.cs" Line="13" Column="65" />
+      <File FileName="SkillUp/Models/Training.cs" Line="14" Column="1" />
+      <File FileName="SkillUp/Models/Candidat.cs" Line="13" Column="47" />
+      <File FileName="SkillUp/Models/Formation.cs" Line="14" Column="49" />
+      <File FileName="SkillUp/Models/Achat.cs" Line="14" Column="33" />
+      <File FileName="SkillUp/Models/TrainingCenter.cs" Line="16" Column="65" />
+      <File FileName="SkillUp/Models/ApplicationDbContext.cs" Line="16" Column="35" />
+      <File FileName="SkillUp/Controllers/TrainingController.cs" Line="49" Column="10" />
+      <File FileName="SkillUp/Controllers/Candidatcontroller.cs" Line="47" Column="64" />
+      <File FileName="SkillUp/Services/ITrainingService.cs" Line="1" Column="1" />
+      <File FileName="SkillUp/Services/ICandidatService.cs" Line="12" Column="41" />
+      <File FileName="SkillUp/Services/ServicesImpl/TrainingServiceImpl.cs" Line="34" Column="33" />
+      <File FileName="SkillUp/Services/ServicesImpl/CandidatServiceImpl.cs" Line="49" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="SkillUp" expanded="True">
-            <Node name="SkillUp" expanded="True" />
+            <Node name="SkillUp" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Training.cs" selected="True" />
+              </Node>
+              <Node name="Services" expanded="True">
+                <Node name="ServicesImpl" expanded="True" />
+              </Node>
+            </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.SkillUp PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

@@ -38,6 +38,13 @@ namespace SkillUp.Services.ServicesImpl
             var training = await _db.trainings.ToListAsync();
             return training;
         }
+
+        public async Task<Training> GetTrainingById(int id)
+        {
+            var trainingInDB = await _db.trainings.FindAsync(id);
+            await _db.SaveChangesAsync();
+            return trainingInDB;
+        }
     }
 }
 	

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SkillUp.Models;
@@ -11,9 +12,11 @@ using SkillUp.Models;
 namespace SkillUp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230504184517_first-commit")]
+    partial class firstcommit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -95,12 +98,7 @@ namespace SkillUp.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("trainingCenterId")
-                        .HasColumnType("integer");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("trainingCenterId");
 
                     b.ToTable("trainings");
                 });
@@ -139,21 +137,12 @@ namespace SkillUp.Migrations
                         .HasForeignKey("candidatId");
 
                     b.HasOne("SkillUp.Models.Training", "training")
-                        .WithMany("achats")
+                        .WithMany()
                         .HasForeignKey("trainingId");
 
                     b.Navigation("candidat");
 
                     b.Navigation("training");
-                });
-
-            modelBuilder.Entity("SkillUp.Models.Training", b =>
-                {
-                    b.HasOne("SkillUp.Models.TrainingCenter", "trainingCenter")
-                        .WithMany()
-                        .HasForeignKey("trainingCenterId");
-
-                    b.Navigation("trainingCenter");
                 });
 
             modelBuilder.Entity("SkillUp.Models.TrainingCenter", b =>
@@ -177,11 +166,6 @@ namespace SkillUp.Migrations
             modelBuilder.Entity("SkillUp.Models.Manager", b =>
                 {
                     b.Navigation("trainingCenters");
-                });
-
-            modelBuilder.Entity("SkillUp.Models.Training", b =>
-                {
-                    b.Navigation("achats");
                 });
 
             modelBuilder.Entity("SkillUp.Models.TrainingCenter", b =>

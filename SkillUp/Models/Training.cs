@@ -11,8 +11,10 @@ namespace SkillUp.Models
 		}
 
         public int Id { get; set; }
-        [Display(Name = "Nom de la formation")]
         public string Name { get; set; }
+        public IEnumerable<Achat>? achats { get; set; }
+        //public int trainingCenterId { get; set; }
+        public TrainingCenter? trainingCenter { get; set; }
     }
 }
 

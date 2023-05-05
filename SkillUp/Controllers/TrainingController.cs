@@ -23,6 +23,12 @@ namespace SkillUp.Controllers
             return Ok(cat);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetTrainingById(int id)
+        {
+            var trainingInDb = await trainingService.GetTrainingById(id);
+            return Ok(trainingInDb);
+        }
 
         [HttpPost]
         public async Task<IActionResult> AddNewCategory(Training training)

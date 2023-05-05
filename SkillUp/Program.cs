@@ -16,6 +16,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ITrainingService, TrainingServiceImpl>();
+builder.Services.AddScoped<ICandidatService, CandidatServiceImpl>();
+builder.Services.AddScoped<IManagerService, ManagerServiceImpl>();
+builder.Services.AddScoped<ITrainingCenterService, TrainingCenterServiceImpl>();
+builder.Services.AddScoped<IAchatService, AchatServiceImpl>();
+builder.Services.AddControllers()
+    .AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling =
+    Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+builder.Services.AddEndpointsApiExplorer();
 
 
 var app = builder.Build();

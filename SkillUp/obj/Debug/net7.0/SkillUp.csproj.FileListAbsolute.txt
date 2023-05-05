@@ -133,3 +133,7 @@
 /Users/ahmed/Desktop/book/TekUp/S2/ .Net/TP/skillup-dotnet-core-web-api/SkillUp/obj/Debug/net7.0/SkillUp.pdb
 /Users/ahmed/Desktop/book/TekUp/S2/ .Net/TP/skillup-dotnet-core-web-api/SkillUp/obj/Debug/net7.0/SkillUp.genruntimeconfig.cache
 /Users/ahmed/Desktop/book/TekUp/S2/ .Net/TP/skillup-dotnet-core-web-api/SkillUp/obj/Debug/net7.0/ref/SkillUp.dll
+/Users/ahmed/Desktop/book/TekUp/S2/ .Net/TP/skillup-dotnet-core-web-api/SkillUp/bin/Debug/net7.0/Microsoft.AspNetCore.JsonPatch.dll
+/Users/ahmed/Desktop/book/TekUp/S2/ .Net/TP/skillup-dotnet-core-web-api/SkillUp/bin/Debug/net7.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/Users/ahmed/Desktop/book/TekUp/S2/ .Net/TP/skillup-dotnet-core-web-api/SkillUp/bin/Debug/net7.0/Newtonsoft.Json.dll
+/Users/ahmed/Desktop/book/TekUp/S2/ .Net/TP/skillup-dotnet-core-web-api/SkillUp/bin/Debug/net7.0/Newtonsoft.Json.Bson.dll
