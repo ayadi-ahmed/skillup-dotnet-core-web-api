@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 
 namespace SkillUp.Models
@@ -13,7 +14,9 @@ namespace SkillUp.Models
         public DbSet<TrainingCenter> trainingCenters { get; set; }
         public DbSet<Candidat> candidats {get; set;}
         public DbSet<Manager> managers {get; set;}
-        public DbSet<Achat> achats { get; set; }   
+        public DbSet<Achat> achats { get; set; }
+
+     
     }
 }
 

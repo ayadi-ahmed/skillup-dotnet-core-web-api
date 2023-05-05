@@ -52,6 +52,13 @@ namespace SkillUp.Controllers
             var cat = await achatService.DeleteAchat(id);
             return Ok(cat);
         }
+
+        [HttpPost("{idAchat}/candidat/{idCandidat}")]
+        public async Task<IActionResult> AffectAchatToCandidat(int idAchat, int idCandidat)
+        {
+            Achat achat = await achatService.AffectAchatToCandidat(idAchat, idCandidat);
+            return Ok(achat);
+        }
     }
 }
 

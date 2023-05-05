@@ -48,6 +48,15 @@ namespace SkillUp.Services.ServicesImpl
             IEnumerable<Achat> achats = await _db.achats.ToListAsync();
             return achats;
         }
+
+        public async Task<Achat> AffectAchatToCandidat(int idC, int idA)
+        {
+            Candidat candiatDB = await _db.candidats.FindAsync(idC);
+            Achat achatDB = await _db.achats.FindAsync(idA);
+            achatDB.Candidat = candiatDB;
+            await _db.SaveChangesAsync();
+            return achatDB;
+        }
     }
 }
 

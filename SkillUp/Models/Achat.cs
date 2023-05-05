@@ -10,7 +10,7 @@ namespace SkillUp.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public Training? training { get; set; }
-        public Candidat? candidat { get; set; }
+        public Candidat? Candidat { get; set; }
     }
 }
 

@@ -56,8 +56,8 @@ namespace SkillUp.Services.ServicesImpl
         {
             Candidat candiatDB = await _context.candidats.FindAsync(idC);
             Achat achatDB = await _context.achats.FindAsync(idA);
-            candiatDB.achats.Append(achatDB);
-            achatDB.candidat = candiatDB;
+            candiatDB.achats = candiatDB.achats.Append(achatDB);
+            achatDB.Candidat = candiatDB;
             await _context.SaveChangesAsync();
             return candiatDB;
         }

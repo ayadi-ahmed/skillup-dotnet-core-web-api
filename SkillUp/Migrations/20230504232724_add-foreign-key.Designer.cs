@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SkillUp.Models;
@@ -11,9 +12,11 @@ using SkillUp.Models;
 namespace SkillUp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230504232724_add-foreign-key")]
+    partial class addforeignkey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,19 +33,19 @@ namespace SkillUp.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CandidatId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int?>("candidatId")
+                        .HasColumnType("integer");
 
                     b.Property<int?>("trainingId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CandidatId");
+                    b.HasIndex("candidatId");
 
                     b.HasIndex("trainingId");
 
@@ -60,10 +63,6 @@ namespace SkillUp.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
-
-                    b.Property<int[]>("achatsId")
-                        .IsRequired()
-                        .HasColumnType("integer[]");
 
                     b.HasKey("Id");
 
@@ -138,15 +137,15 @@ namespace SkillUp.Migrations
 
             modelBuilder.Entity("SkillUp.Models.Achat", b =>
                 {
-                    b.HasOne("SkillUp.Models.Candidat", "Candidat")
+                    b.HasOne("SkillUp.Models.Candidat", "candidat")
                         .WithMany("achats")
-                        .HasForeignKey("CandidatId");
+                        .HasForeignKey("candidatId");
 
                     b.HasOne("SkillUp.Models.Training", "training")
                         .WithMany("achats")
                         .HasForeignKey("trainingId");
 
-                    b.Navigation("Candidat");
+                    b.Navigation("candidat");
 
                     b.Navigation("training");
                 });

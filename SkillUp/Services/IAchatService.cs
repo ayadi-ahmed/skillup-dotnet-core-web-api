@@ -10,6 +10,7 @@ namespace SkillUp.Services
         Task<Achat> CreateAchat(Achat achat);
         Task<Achat> EditAchat(int id, Achat achat);
         Task<Achat> DeleteAchat(int id);
+        Task<Achat> AffectAchatToCandidat(int idC, int idA);
     }
 }
 
