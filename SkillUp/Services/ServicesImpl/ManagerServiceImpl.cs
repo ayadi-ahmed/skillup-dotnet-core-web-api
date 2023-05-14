@@ -31,7 +31,14 @@ namespace SkillUp.Services.ServicesImpl
         public async Task<Manager> EditManager(int id, Manager manager)
         {
             var managerInDB = await _db.managers.FindAsync(id);
-            managerInDB.Name = manager.Name;
+            managerInDB.nom = manager.nom;
+            managerInDB.prenom = manager.prenom;
+            managerInDB.mdp = manager.mdp;
+            managerInDB.tel = manager.tel;
+            managerInDB.dateNaissance = manager.dateNaissance;
+            managerInDB.email = manager.email;
+
+            managerInDB.trainingCenters= manager.trainingCenters;
             await _db.SaveChangesAsync();
             return managerInDB;
         }

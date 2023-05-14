@@ -61,10 +61,6 @@ namespace SkillUp.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int[]>("achatsId")
-                        .IsRequired()
-                        .HasColumnType("integer[]");
-
                     b.HasKey("Id");
 
                     b.ToTable("candidats");
@@ -72,17 +68,39 @@ namespace SkillUp.Migrations
 
             modelBuilder.Entity("SkillUp.Models.Manager", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
-                    b.Property<string>("Name")
+                    b.Property<DateTime>("dateNaissance")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("email")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("Id");
+                    b.Property<string>("mdp")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("nom")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("prenom")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("role")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("tel")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("id");
 
                     b.ToTable("managers");
                 });
@@ -99,37 +117,70 @@ namespace SkillUp.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("trainingCenterId")
+                    b.Property<int?>("trainingCenterid")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("trainingCenterId");
+                    b.HasIndex("trainingCenterid");
 
                     b.ToTable("trainings");
                 });
 
             modelBuilder.Entity("SkillUp.Models.TrainingCenter", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
-                    b.Property<string>("Name")
+                    b.Property<int?>("TrainingCenterid")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("addresse")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("TrainingCenterId")
+                    b.Property<string>("dateCreation")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("etatDemandeInscription")
                         .HasColumnType("integer");
+
+                    b.Property<string>("logo")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<int?>("managerId")
                         .HasColumnType("integer");
 
-                    b.HasKey("Id");
+                    b.Property<string>("matriculeFiscale")
+                        .IsRequired()
+                        .HasColumnType("text");
 
-                    b.HasIndex("TrainingCenterId");
+                    b.Property<string>("nom")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<long>("rib")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("tel")
+                        .HasColumnType("integer");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("TrainingCenterid");
 
                     b.HasIndex("managerId");
 
@@ -154,8 +205,8 @@ namespace SkillUp.Migrations
             modelBuilder.Entity("SkillUp.Models.Training", b =>
                 {
                     b.HasOne("SkillUp.Models.TrainingCenter", "trainingCenter")
-                        .WithMany()
-                        .HasForeignKey("trainingCenterId");
+                        .WithMany("training")
+                        .HasForeignKey("trainingCenterid");
 
                     b.Navigation("trainingCenter");
                 });
@@ -164,7 +215,7 @@ namespace SkillUp.Migrations
                 {
                     b.HasOne("SkillUp.Models.TrainingCenter", null)
                         .WithMany("trainingCenters")
-                        .HasForeignKey("TrainingCenterId");
+                        .HasForeignKey("TrainingCenterid");
 
                     b.HasOne("SkillUp.Models.Manager", "manager")
                         .WithMany("trainingCenters")
@@ -190,6 +241,8 @@ namespace SkillUp.Migrations
 
             modelBuilder.Entity("SkillUp.Models.TrainingCenter", b =>
                 {
+                    b.Navigation("training");
+
                     b.Navigation("trainingCenters");
                 });
 #pragma warning restore 612, 618

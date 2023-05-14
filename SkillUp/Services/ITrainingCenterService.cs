@@ -10,6 +10,8 @@ namespace SkillUp.Services
         Task<TrainingCenter> CreateTrainingCenter(TrainingCenter trainingCenter);
         Task<TrainingCenter> EditTrainingCenter(int id, TrainingCenter trainingCenter);
         Task<TrainingCenter> DeleteTrainingCenter(int id);
+        Task<TrainingCenter> affectCenterToManager(int mid, int cid);
+        Task<TrainingCenter> affectFormationToCenter(int cid, int fid);
     }
 }
 

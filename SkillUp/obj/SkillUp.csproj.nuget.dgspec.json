@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ahmed/Desktop/book/TekUp/S2/ .Net/TP/skillup-dotnet-core-web-api/SkillUp/SkillUp.csproj": {}
+    "C:\\Users\\mohamed\\source\\repos\\net\\SkillUp\\SkillUp.csproj": {}
   },
   "projects": {
-    "/Users/ahmed/Desktop/book/TekUp/S2/ .Net/TP/skillup-dotnet-core-web-api/SkillUp/SkillUp.csproj": {
+    "C:\\Users\\mohamed\\source\\repos\\net\\SkillUp\\SkillUp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ahmed/Desktop/book/TekUp/S2/ .Net/TP/skillup-dotnet-core-web-api/SkillUp/SkillUp.csproj",
+        "projectUniqueName": "C:\\Users\\mohamed\\source\\repos\\net\\SkillUp\\SkillUp.csproj",
         "projectName": "SkillUp",
-        "projectPath": "/Users/ahmed/Desktop/book/TekUp/S2/ .Net/TP/skillup-dotnet-core-web-api/SkillUp/SkillUp.csproj",
-        "packagesPath": "/Users/ahmed/.nuget/packages/",
-        "outputPath": "/Users/ahmed/Desktop/book/TekUp/S2/ .Net/TP/skillup-dotnet-core-web-api/SkillUp/obj/",
+        "projectPath": "C:\\Users\\mohamed\\source\\repos\\net\\SkillUp\\SkillUp.csproj",
+        "packagesPath": "C:\\Users\\mohamed\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mohamed\\source\\repos\\net\\SkillUp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/ahmed/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\mohamed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -94,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

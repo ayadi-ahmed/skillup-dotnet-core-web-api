@@ -54,6 +54,20 @@ namespace SkillUp.Controllers
             var trainingCenter = await trainingCenterService.DeleteTrainingCenter(id);
             return Ok(trainingCenter);
         }
+
+
+        [HttpGet("{cid}/manager/{mid}")]
+        public async Task<IActionResult> affectCenterToManager(int cid, int mid)
+        {
+            var trainingCenter = await trainingCenterService.affectCenterToManager(mid, cid);
+            return Ok(trainingCenter);
+        }
+        [HttpGet("{cid}/formation/{fid}")]
+        public async Task<IActionResult> affectFormationToCenter(int cid, int fid)
+        {
+            var trainingCenter = await trainingCenterService.affectFormationToCenter(cid, fid);
+            return Ok(trainingCenter);
+        }
     }
 }
 
